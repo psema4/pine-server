@@ -1,0 +1,29 @@
+{
+  "name": "pine-server",
+  "version": "0.0.0",
+  "description": "Pine Console Server Application",
+  "main": "server-server.js",
+  "dependencies": {
+    "express": "~3.0.6",
+    "json-parse": "*",
+    "mustache": "~0.7.2",
+    "shelljs": "~0.1.1",
+    "underscore": "~1.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psema4/pine-client.git"
+  },
+  "keywords": [
+    "HTML5",
+    "Gaming",
+    "Raspberry",
+    "Pi"
+  ],
+  "author": "Pine Dev Team",
+  "license": "BSD"
+}

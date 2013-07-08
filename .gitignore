@@ -1,0 +1,15 @@
+*~
+*.swp
+.Xauthority
+.bash_history
+.cache/
+.config/
+.dbus/
+.gitconfig
+.npm/
+.pki/
+.vim/
+.viminfo
+.xsession-errors
+node_modules
+npm-debug.log

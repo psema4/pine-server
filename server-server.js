@@ -36,7 +36,23 @@ server.get('/news', function(req, res) {
 
 server.get('/system/info', function(req, res) {
     var isPine = process.env.PINESYSTEM || '0'; 
-    res.send('{"ispine":"' + isPine + '"}');
+
+    fs.readdir('public/games', function(err, folders) {
+        var games = [];
+
+        [].forEach.call(folders, function(folder) {
+            var filename = 'public/games/' + folder + '/game.json';
+            games.push(JSON.parse(fs.readFileSync(filename, 'utf8')));
+        });
+
+        var info = {
+            ispine: isPine,
+            games: JSON.stringify(games)
+        }
+
+        res.send(JSON.stringify(info));
+    });
+
 });
 
 server.get('/game/:id', function(req, res) {

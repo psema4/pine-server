@@ -41,6 +41,8 @@ server.get('/system/info', function(req, res) {
         var games = [];
 
         [].forEach.call(folders, function(folder) {
+            if (folder.match(/\.zip$/)) return;
+
             var filename = 'public/games/' + folder + '/game.json';
             games.push(JSON.parse(fs.readFileSync(filename, 'utf8')));
         });
@@ -53,6 +55,22 @@ server.get('/system/info', function(req, res) {
         res.send(JSON.stringify(info));
     });
 
+});
+
+server.get('/download/:id', function(req, res) {
+    var id = req.params.id;
+
+    var filename = __dirname + '/public/games/' + id + '.zip';
+    console.log('client download: ' + filename);
+
+    var readStream = fs.createReadStream(filename);
+    if (readStream) {
+        readStream.pipe(res);
+
+    } else {
+        res.statusCode = 404;
+        res.send('not found');
+    }
 });
 
 server.get('/game/:id', function(req, res) {

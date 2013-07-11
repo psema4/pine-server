@@ -47,7 +47,7 @@ server.get('/system/info', function(req, res) {
 
         var info = {
             ispine: isPine,
-            games: JSON.stringify(games)
+            games: games
         }
 
         res.send(JSON.stringify(info));
